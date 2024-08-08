@@ -1,23 +1,23 @@
 package com.project.HelpDesk.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 import java.util.Set;
 
 @Data
 @Entity
+@Table(name = "panne")
 public class panneModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String description;
 
     @ManyToOne
+    @JoinColumn(name = "equipement_id")
     private equipementsModel equipement;
 
     @OneToMany(mappedBy = "panne")
@@ -25,4 +25,5 @@ public class panneModel {
 
     @OneToMany(mappedBy = "panne")
     private Set<ticketModel> tickets;
+
 }

@@ -1,32 +1,38 @@
 package com.project.HelpDesk.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
+@Table(name = "ticket")
 public class ticketModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String description;
-    private Date dateCreation;
+
+    private LocalDateTime dateCreation;
+
     private String etat;
 
     @ManyToOne
+    @JoinColumn(name = "utilisateur_id")
     private userModel utilisateur;
 
     @ManyToOne
+    @JoinColumn(name = "equipement_id")
     private equipementsModel equipement;
 
     @ManyToOne
+    @JoinColumn(name = "panne_id")
     private panneModel panne;
 
     @ManyToOne
+    @JoinColumn(name = "technicien_id")
     private technicienModel technicien;
+
+
 }
