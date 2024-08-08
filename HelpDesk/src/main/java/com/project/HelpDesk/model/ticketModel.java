@@ -23,11 +23,11 @@ public class ticketModel {
     private userModel utilisateur;
 
     @ManyToOne
-    @JoinColumn(name = "equipement_id")
+    @JoinColumn(name = "equipement_id", nullable = false)
     private equipementsModel equipement;
 
     @ManyToOne
-    @JoinColumn(name = "panne_id")
+    @JoinColumn(name = "panne_id", nullable = false)
     private panneModel panne;
 
     @ManyToOne

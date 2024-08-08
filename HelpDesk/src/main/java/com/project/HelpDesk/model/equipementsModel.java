@@ -23,13 +23,7 @@ public class equipementsModel {
     private String type;
     private String etat;
 
-
-    @OneToMany(mappedBy = "equipement")
-    private Set<panneModel> pannes;
-
     @OneToMany(mappedBy = "equipement")
     private Set<ticketModel> tickets;
 
-    @OneToMany(mappedBy = "equipement")
-    private Set<historiquePanne> historiques;
 }

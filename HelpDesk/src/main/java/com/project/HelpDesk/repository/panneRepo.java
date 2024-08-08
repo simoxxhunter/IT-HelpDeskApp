@@ -1,4 +1,7 @@
 package com.project.HelpDesk.repository;
 
-public class panneRepo {
+import com.project.HelpDesk.model.panneModel;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface panneRepo extends JpaRepository<panneModel, Long> {
 }

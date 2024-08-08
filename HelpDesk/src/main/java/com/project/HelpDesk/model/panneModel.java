@@ -1,8 +1,10 @@
 package com.project.HelpDesk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -13,17 +15,10 @@ public class panneModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "equipement_id")
-    private equipementsModel equipement;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "panne")
-    private Set<historiquePanne> historiques;
-
-    @OneToMany(mappedBy = "panne")
-    private Set<ticketModel> tickets;
+    private List<ticketModel> tickets;
 
 }
