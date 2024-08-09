@@ -10,4 +10,5 @@ public interface ticketService {
     void deleteTicket(Long idTicket);
     ticketModel updateTicket(Long idTicket, ticketModel ticketDetails);
     List<ticketModel> getAllTickets();
+    ticketModel assignTicket(Long ticketId, Long technicienId);
 }

@@ -69,5 +69,15 @@ public class ticketServiceImp implements ticketService {
         return ticketRepository.findAll();
     }
 
+    @Override
+    public ticketModel assignTicket(Long ticketId, Long technicienId) {
+        ticketModel ticket = ticketRepository.findById(ticketId)
+                .orElseThrow(() -> new RuntimeException("Ticket not found"));
+        technicienModel technicien = technicienRepository.findById(technicienId)
+                .orElseThrow(() -> new RuntimeException("Technicien not found"));
+
+        ticket.setTechnicien(technicien);
+        return ticketRepository.save(ticket);
+    }
 
 }
