@@ -2,6 +2,8 @@ package com.project.HelpDesk.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -14,7 +16,7 @@ public class ticketModel {
 
     private String description;
 
-    private LocalDateTime dateCreation;
+    private LocalDate dateCreation;
 
     private String etat;
 
