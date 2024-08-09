@@ -22,17 +22,17 @@ public class panneController {
         return panneService.addPanne(panne);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/Modify/{id}")
     public panneModel updatePanne(@PathVariable Long id, @RequestBody panneModel panneDetails) {
         return panneService.updatePanne(id, panneDetails);
     }
 
-    @GetMapping("/ShowAllPanne")
+    @GetMapping("/ShowAllPannes")
     public List<panneModel> getAllPanne() {
         return panneService.getAllPanne();
     }
 
-    @DeleteMapping("/{idPanne}")
+    @DeleteMapping("/Delete/{idPanne}")
     public void deletePanne(@PathVariable Long idPanne) {
         panneService.deletePanne(idPanne);
     }
