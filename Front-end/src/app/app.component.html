@@ -1,0 +1,81 @@
+<mat-toolbar class="sticky">
+  <span>
+    <img class="logo" src="../assets/logo.png" routerLink="/home">
+  </span>
+  <span class="spacer"></span>
+  <ul class="nav-list">
+    <li>
+      <a mat-button routerLink="/login" routerLinkActive="btn-selected">Log in</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/signup" routerLinkActive="btn-selected">Sign up</a>
+    </li>
+    <li>
+      <button mat-button class="btn-menu user-header">User</button>
+    </li>
+    <li>
+      <button mat-icon-button>
+        <mat-icon class="menu-dots">support_agent</mat-icon>
+      </button>
+    </li>
+    <li>
+      <button mat-icon-button>
+        <mat-icon class="menu-dots">mail</mat-icon>
+      </button>
+    </li>
+    <li>
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item>Settings</button>
+        <button mat-menu-item routerLink="/help">Help</button>
+        <a class="maroon" mat-menu-item>Terms of use</a>
+        <button mat-menu-item routerLink="/help">Corporate documents</button>
+        <button mat-menu-item routerLink="/help">Suppliers</button>
+        <button mat-menu-item routerLink="/help">Disclaimer</button>
+        <button mat-menu-item routerLink="/help">Contact</button>
+      </mat-menu>
+      <button mat-icon-button [matMenuTriggerFor]="appMenu">
+        <mat-icon class="menu-dots">more_vert</mat-icon>
+      </button>
+    </li>
+    <li>
+      <button mat-icon-button >
+        <mat-icon class="menu-dots">logout</mat-icon>
+      </button>
+    </li>
+  </ul>
+</mat-toolbar>
+
+
+
+<mat-sidenav-container class="sticky-side-menu full-size">
+  <mat-sidenav mode="side" opened position="start" class="side-nav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/tickets" routerLinkActive="menu-list-item-selected">
+        <mat-icon class="menu-color">assessment</mat-icon> Tickets
+      </a>
+      <hr color="maroon">
+      <a mat-list-item routerLink="/incident-reports">
+        <mat-icon class="menu-color">report_problem</mat-icon> Incident Reports
+      </a>
+      <a mat-list-item routerLink="/knowledge-base">
+        <mat-icon class="menu-color">book</mat-icon> Knowledge Base
+      </a>
+      <a mat-list-item routerLink="/assets">
+        <mat-icon class="menu-color">inventory</mat-icon> Assets
+      </a>
+      <a mat-list-item routerLink="/service-requests">
+        <mat-icon class="menu-color">request_quote</mat-icon> Service Requests
+      </a>
+      <a mat-list-item routerLink="/user-management">
+        <mat-icon class="menu-color">people</mat-icon> User Management
+      </a>
+      <a mat-list-item routerLink="/configuration">
+        <mat-icon class="menu-color">settings</mat-icon> Configuration
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content-full">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
