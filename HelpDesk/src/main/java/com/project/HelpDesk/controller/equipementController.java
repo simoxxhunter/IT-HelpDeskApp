@@ -17,23 +17,23 @@ public class equipementController {
     private equipementService equipementService;
 
     @PostMapping("/Createequipement")
-    public equipementsModel creerEvent(@RequestBody equipementsModel equipement) {
+    public equipementsModel creerequipement(@RequestBody equipementsModel equipement) {
         return equipementService.Createequipement(equipement);
     }
 
-    @GetMapping("/ShowAll")
+    @GetMapping("/ShowAllequipements")
     public List<equipementsModel> getAllequipements() {
         return equipementService.getAllequipements();
     }
 
-    @PutMapping("/eventsPut/{idequipement}")
+    @PutMapping("/Modify/{idequipement}")
     public equipementsModel updateequipement(@PathVariable Long idequipement, @RequestBody equipementsModel equipement) {
         return equipementService.updateequipements(equipement, idequipement);
     }
 
-
-    @DeleteMapping("/{idequipement}")
+    @DeleteMapping("/Delete/{idequipement}")
     public void deleteCompte(@PathVariable Long idequipement) {
         equipementService.deleteequipements(idequipement);
     }
+
 }
