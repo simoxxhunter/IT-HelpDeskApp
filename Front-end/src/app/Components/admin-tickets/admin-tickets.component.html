@@ -1,3 +1,24 @@
-<p>admin-tickets works!</p>
-<h1>Admin Tickets</h1>
-<p>Manage and view admin tickets here.</p>
+<div class="container">
+    <h2>Manage Tickets</h2>
+    
+    <form [formGroup]="assignForm" (ngSubmit)="assignTicket()">
+      <div class="form-group">
+        <label for="ticket">Select Ticket</label>
+        <select id="ticket" formControlName="ticketId" class="form-control">
+          <option *ngFor="let ticket of tickets" [value]="ticket.id">
+            {{ ticket.description }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="technician">Select Technician</label>
+        <select id="technician" formControlName="technicianId" class="form-control">
+          <option *ngFor="let tech of technicians" [value]="tech.id">
+            {{ tech.nom }}
+          </option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Assign Ticket</button>
+    </form>
+  </div>
+  
