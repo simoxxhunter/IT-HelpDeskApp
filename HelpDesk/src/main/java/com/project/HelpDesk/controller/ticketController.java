@@ -34,7 +34,7 @@ public class ticketController {
         ticketService.deleteTicket(idTicket);
     }
 
-    @PutMapping("/ticketID={ticketId}/assign/techID={technicienId}")
+    @PutMapping("/{ticketId}/assign/technicienId}")
     public ticketModel assignTicket(@PathVariable Long ticketId, @PathVariable Long technicienId) {
         return ticketService.assignTicket(ticketId, technicienId);
     }
