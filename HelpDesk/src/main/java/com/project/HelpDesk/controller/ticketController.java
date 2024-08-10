@@ -6,6 +6,7 @@ import com.project.HelpDesk.service.ticketService;
 import com.project.HelpDesk.model.ticketModel;
 
 import java.util.List;
+@CrossOrigin(origins = "http://localhost:4200")
 
 @RestController
 @RequestMapping("/tickets")
@@ -24,7 +25,7 @@ public class ticketController {
         return ticketService.updateTicket(id, ticketDetails);
     }
 
-    @GetMapping("/ShowAllTickets")
+    @GetMapping
     public List<ticketModel> getAllTickets() {
         return ticketService.getAllTickets();
     }
@@ -34,7 +35,7 @@ public class ticketController {
         ticketService.deleteTicket(idTicket);
     }
 
-    @PutMapping("/{ticketId}/assign/technicienId}")
+    @PutMapping("/{ticketId}/assign/{technicienId}")
     public ticketModel assignTicket(@PathVariable Long ticketId, @PathVariable Long technicienId) {
         return ticketService.assignTicket(ticketId, technicienId);
     }
