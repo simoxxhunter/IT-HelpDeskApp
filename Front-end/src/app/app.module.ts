@@ -31,6 +31,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AdminTicketsComponent } from './Components/admin-tickets/admin-tickets.component';
 
 
 
@@ -38,7 +39,8 @@ import { MatTabsModule } from '@angular/material/tabs';
   declarations: [
     AppComponent,
     AdminDashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    AdminTicketsComponent
   ],
   imports: [
     MatTabsModule,
