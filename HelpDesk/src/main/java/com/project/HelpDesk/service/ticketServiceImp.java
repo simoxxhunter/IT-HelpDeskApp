@@ -78,6 +78,8 @@ public class ticketServiceImp implements ticketService {
 
         ticket.setTechnicien(technicien);
         return ticketRepository.save(ticket);
+
+
     }
 
 }
