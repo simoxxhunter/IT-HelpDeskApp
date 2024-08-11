@@ -1,0 +1,22 @@
+<div class="equipement-list">
+    <h2>List of Equipments</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let equip of equipments">
+          <td>{{ equip.id }}</td>
+          <td>{{ equip.nom }}</td>
+          <td>{{ equip.type }}</td>
+          <td>{{ equip.etat }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -32,7 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AdminTicketsComponent } from './Components/admin-tickets/admin-tickets.component';
-
+import { EquipementListComponent } from './Components/admin-equipements/admin-equipements.component';
 
 
 @NgModule({
@@ -40,7 +40,8 @@ import { AdminTicketsComponent } from './Components/admin-tickets/admin-tickets.
     AppComponent,
     AdminDashboardComponent,
     UserDashboardComponent,
-    AdminTicketsComponent
+    AdminTicketsComponent,
+    EquipementListComponent
   ],
   imports: [
     MatTabsModule,
