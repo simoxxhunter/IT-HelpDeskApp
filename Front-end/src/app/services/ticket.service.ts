@@ -20,7 +20,7 @@ export class TicketService {
   }
 
   createTicket(ticket: Ticket): Observable<Ticket> {
-    return this.http.post<Ticket>(this.apiUrl, ticket);
+    return this.http.post<Ticket>(`${this.apiUrl}/add`, ticket);
   }
 
   updateTicket(id: number, ticket: Ticket): Observable<Ticket> {

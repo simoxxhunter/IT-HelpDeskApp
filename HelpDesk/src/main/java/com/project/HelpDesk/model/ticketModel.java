@@ -18,8 +18,6 @@ public class ticketModel {
 
     private LocalDate dateCreation;
 
-    private LocalDate dateResolution;
-
     private String etat;
 
     @ManyToOne

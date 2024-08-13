@@ -34,6 +34,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AdminTicketsComponent } from './Components/admin-tickets/admin-tickets.component';
 import { AdminEquipmentsComponent } from './Components/admin-equipements/admin-equipements.component';
 import {  AdminPannesComponent } from './Components/admin-pannes/admin-pannes.component';
+import { UserComponent } from './Components/user-component/user-component.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {  AdminPannesComponent } from './Components/admin-pannes/admin-pannes.co
     AdminTicketsComponent,
     AdminEquipmentsComponent,
     AdminPannesComponent,
-    AdminPannesComponent
+    AdminPannesComponent,
+    UserComponent
   ],
   imports: [
     MatTabsModule,
