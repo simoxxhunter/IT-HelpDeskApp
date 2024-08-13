@@ -4,6 +4,7 @@ import com.project.HelpDesk.model.*;
 
 
 import java.util.List;
+import java.util.Optional;
 
 public interface panneService {
 
@@ -12,5 +13,5 @@ public interface panneService {
     void deletePanne(Long idPanne);
     List<panneModel> getAllPanne();
 
-
+    Optional<panneModel> getPanneById(Long idPanne);
 }
