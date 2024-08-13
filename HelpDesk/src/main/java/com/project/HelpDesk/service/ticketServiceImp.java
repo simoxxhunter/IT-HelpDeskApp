@@ -31,6 +31,17 @@ public class ticketServiceImp implements ticketService {
 
     @Override
     public ticketModel addTicket(ticketModel ticket) {
+        System.out.println("Received ticket data: " + ticket);
+
+        if (ticket.getEquipement() == null || ticket.getEquipement().getId() == null) {
+            throw new IllegalArgumentException("Equipement is required");
+        }
+        if (ticket.getUtilisateur() == null || ticket.getUtilisateur().getId() == null) {
+            throw new IllegalArgumentException("User is required");
+        }
+        if (ticket.getPanne() == null || ticket.getPanne().getId() == null) {
+            throw new IllegalArgumentException("Panne is required");
+        }
 
         equipementsModel equipement = equipementRepository.findById(ticket.getEquipement().getId())
                 .orElseThrow(() -> new RuntimeException("Equipement not found"));
@@ -49,6 +60,8 @@ public class ticketServiceImp implements ticketService {
 
         return ticketRepository.save(ticketDetails);
     }
+
+
 
     @Override
     public void deleteTicket(Long idTicket) {

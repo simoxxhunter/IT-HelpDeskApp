@@ -1,9 +1,9 @@
 export interface Ticket {
-    id: number;
-    description: string;
-    dateCreation: Date;
-    etat: string;
-    utilisateurId: number;
-    technicienId?: number; 
-  }
-  
+  id?: number;
+  description: string;
+  dateCreation?: Date;
+  etat: string;
+  equipementId?: number;
+  utilisateurId?: number;
+  panneId?: number;
+}

@@ -2,13 +2,13 @@
     <button type="button" class="btn btn-primary mb-4" (click)="openAddModal()">
       <i class="fas fa-plus-circle mr-2"></i>Add New Ticket
     </button>
-  
-    <!-- Add  Modal -->
-    <div class="modal fade" id="addTicketModal" tabindex="-1" role="dialog" aria-labelledby="addTicketModalLabel" aria-hidden="true">
+
+    <!-- Add Ticket -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header bg-primary text-white">
-            <h5 class="modal-title" id="addTicketModalLabel">Add Ticket</h5>
+            <h5 class="modal-title" id="addModalLabel">Add Ticket</h5>
             <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -20,12 +20,29 @@
                 <input type="text" id="description" class="form-control" formControlName="description" placeholder="Enter ticket description" required>
               </div>
               <div class="form-group">
-                <label for="etat">Etat</label>
+                <label for="dateCreation">Date Creation</label>
+                <input type="date" id="dateCreation" class="form-control" formControlName="dateCreation" required [attr.disabled]="true">
+              </div>
+              <div class="form-group">
+                <label for="panneId">Panne</label>
+                <select id="panneId" class="form-control" formControlName="panneId" required>
+                  <option value="" disabled>Select panne</option>
+                  <option *ngFor="let panne of pannes" [value]="panne.id">{{ panne.description }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="equipementId">Equipement</label>
+                <select id="equipementId" class="form-control" formControlName="equipementId" required>
+                  <option value="" disabled>Select equipement</option>
+                  <option *ngFor="let equipement of equipements" [value]="equipement.id">{{ equipement.nom }}</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="etat">Status</label>
                 <select id="etat" class="form-control" formControlName="etat" required>
-                  <option value="" disabled>Select etat</option>
-                  <option value="Resolved">Resolved</option>
-                  <option value="Pending">Pending</option>
-                  <option value="Closed">Closed</option>
+                  <option value="" disabled>Select status</option>
+                  <option *ngFor="let etat of etats" [value]="etat">{{ etat }}</option>
                 </select>
               </div>
               <div class="text-right">
@@ -33,9 +50,4 @@
                 <button type="submit" class="btn btn-primary" [disabled]="!ticketForm.valid">Add</button>
               </div>
             </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+     
