@@ -4,6 +4,7 @@ import { TicketService } from 'src/app/services/ticket.service';
 import { TechnicianService } from 'src/app/services/technician.service';
 import { Ticket } from 'src/app/models/ticketModel';
 import { Technicien } from 'src/app/models/technicianModel';
+
 @Component({
   selector: 'app-admin-tickets',
   templateUrl: './admin-tickets.component.html',
@@ -42,12 +43,19 @@ export class AdminTicketsComponent implements OnInit {
     });
   }
 
-  assignTicket(): void {
-    const { ticketId, technicianId } = this.assignForm.value;
-    this.ticketService.assignTicket(ticketId, technicianId).subscribe(response => {
-      alert('Ticket assigned successfully');
-      this.assignForm.reset();
-      this.loadTickets(); 
-    });
+  assignTicket(ticketId: number | undefined): void {
+    if (ticketId !== undefined) {
+      this.assignForm.patchValue({
+        ticketId: ticketId
+      });
+      this.ticketService.assignTicket(this.assignForm.get('ticketId')?.value, this.assignForm.get('technicianId')?.value)
+        .subscribe(
+          response => {
+            alert('Ticket assigned successfully');
+            this.assignForm.reset();
+            this.loadTickets();
+          }
+        );
+    } 
   }
 }
