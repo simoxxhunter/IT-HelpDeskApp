@@ -173,8 +173,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-
-		<finalName>docker-helpdesk</finalName>
+	<finalName>docker-helpdesk</finalName>
 
 	</build>
 
