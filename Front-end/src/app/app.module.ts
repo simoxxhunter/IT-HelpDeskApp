@@ -33,6 +33,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AdminTicketsComponent } from './Components/admin-tickets/admin-tickets.component';
 import { AdminEquipmentsComponent } from './Components/admin-equipements/admin-equipements.component';
+import {  AdminPannesComponent } from './Components/admin-pannes/admin-pannes.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { AdminEquipmentsComponent } from './Components/admin-equipements/admin-e
     AdminDashboardComponent,
     UserDashboardComponent,
     AdminTicketsComponent,
-    AdminEquipmentsComponent
+    AdminEquipmentsComponent,
+    AdminPannesComponent,
+    AdminPannesComponent
   ],
   imports: [
     MatTabsModule,

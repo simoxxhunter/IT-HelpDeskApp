@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity
@@ -15,10 +15,13 @@ public class panneModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String description;
 
+    private String etat;
+
     @JsonIgnore
-    @OneToMany(mappedBy = "panne")
+    @OneToMany(mappedBy = "panne", cascade = CascadeType.ALL)
     private List<ticketModel> tickets;
 
 }

@@ -9,13 +9,23 @@ import org.springframework.web.bind.annotation.*;
 import com.project.HelpDesk.model.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/panne")
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class panneController {
 
     @Autowired
     private panneService panneService;
+
+
+    @GetMapping("/{id}")
+    public Optional<panneModel> createPanne(@PathVariable Long id) {
+        return panneService.getPanneById(id);
+    }
+
 
     @PostMapping("/add")
     public panneModel createPanne(@RequestBody panneModel panne) {
@@ -33,6 +43,7 @@ public class panneController {
     }
 
     @DeleteMapping("/Delete/{idPanne}")
+
     public void deletePanne(@PathVariable Long idPanne) {
         panneService.deletePanne(idPanne);
     }

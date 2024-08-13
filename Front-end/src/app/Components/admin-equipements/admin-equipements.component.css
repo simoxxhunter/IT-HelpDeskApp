@@ -2,26 +2,22 @@
     padding: 20px;
   }
   
-  /* Ensure table takes full width of its container */
   .table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #ffffff; /* Set table background to white */
-    box-shadow: none; /* Remove any shadow effect */
+    background-color: #ffffff; 
+    box-shadow: none; 
   }
   
-  /* Add border to table cells and define padding */
   .table th, .table td {
     border: 1px solid #ddd;
     padding: 12px;
   }
   
-  /* Set background color for table headers */
   .table th {
     background-color: #f4f4f4;
   }
   
-  /* Optional: Styling for badge */
   .badge-success {
     background-color: #28a745;
   }
@@ -34,7 +30,6 @@
     background-color: #dc3545;
   }
   
-  /* Optional: Modal adjustments */
   .modal-content {
     border-radius: 8px;
   }
