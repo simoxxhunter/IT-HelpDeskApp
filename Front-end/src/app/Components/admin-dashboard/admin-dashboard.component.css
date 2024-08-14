@@ -1,0 +1,135 @@
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #ecf0f1; 
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  ul.nav-list {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-list li {
+    margin: 0 15px;
+  }
+  
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    height: var(--default-height, 64px);
+  }
+  
+  mat-toolbar {
+    background-color: #3c5267; 
+    color: #ecf0f1; 
+  }
+  .btn-selected {
+    color: #ffffff;
+    background-color: #34495e; 
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-menu, .menu-dots {
+    color: #ecf0f1; 
+  }
+  
+  .logo {
+    cursor: pointer;
+    width: 150px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .logo:hover {
+    opacity: 0.8;
+  }
+  
+  .sticky-side-menu {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
+  
+  .side-nav {
+    background-color: #3c5267; 
+    color: #ecf0f1; 
+  }
+  
+  .mat-drawer-container {
+    width: 250px;
+    height: 100%;
+  }
+  
+  .menu-color {
+    color: #f39c12; 
+    padding-right: 45px;
+  }
+  
+  .mat-list-item, .mat-nav-list {
+    color: #ecf0f1; 
+  }
+  
+  .mat-list-base .mat-list-option .mat-list-item-content {
+    padding: 10px 24px;
+  }
+  
+  .hr-bottom {
+    border-color: rgba(236, 240, 241, 0.3);
+  }
+  
+  .menu-list-item-selected {
+    color: #f39c12; 
+    background-color: rgba(243, 156, 18, 0.1);
+  }
+  
+  .maroon {
+    color: #ecf0f1; 
+  }
+  
+  .user-header {
+    position: relative;
+    padding: 15px 0;
+    color: #ecf0f1; 
+  }
+  
+  .full-size {
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .sidenav-content-full {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff; 
+    color: #3c5267; 
+  }
+  
+  .nav-list li a:hover, .mat-list-item:hover {
+    color: #f39c12; 
+    transition: color 0.3s ease;
+  }
+  
+  @media (max-width: 768px) {
+    .mat-drawer-container {
+        width: 100%;
+    }
+  
+    .sticky {
+        --default-height: 56px;
+    }
+  }

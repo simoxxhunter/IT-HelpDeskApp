@@ -10,9 +10,7 @@
     <li>
       <a mat-button routerLink="/signup" routerLinkActive="btn-selected">Sign up</a>
     </li>
-    <li>
-      <button mat-button class="btn-menu user-header">User</button>
-    </li>
+
     <li>
       <button mat-icon-button>
         <mat-icon class="menu-dots">support_agent</mat-icon>
@@ -24,26 +22,12 @@
       </button>
     </li>
     <li>
-      <mat-menu #appMenu="matMenu">
-        <button mat-menu-item>Settings</button>
-        <button mat-menu-item routerLink="/help">Help</button>
-        <a class="maroon" mat-menu-item>Terms of use</a>
-        <button mat-menu-item routerLink="/help">Corporate documents</button>
-        <button mat-menu-item routerLink="/help">Suppliers</button>
-        <button mat-menu-item routerLink="/help">Disclaimer</button>
-        <button mat-menu-item routerLink="/help">Contact</button>
-      </mat-menu>
-      <button mat-icon-button [matMenuTriggerFor]="appMenu">
-        <mat-icon class="menu-dots">more_vert</mat-icon>
-      </button>
     </li>
     <li>
-      <button mat-icon-button >
+      <button mat-icon-button>
         <mat-icon class="menu-dots">logout</mat-icon>
       </button>
     </li>
   </ul>
 </mat-toolbar>
 <router-outlet></router-outlet>
-
-
