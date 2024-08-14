@@ -1,9 +1,6 @@
 package com.project.HelpDesk.auth;
 
-import com.bank.Dao.UserDao;
-import com.bank.Model.Role;
-import com.bank.Model.userModel;
-import com.bank.Services.JwtService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -11,6 +8,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.project.HelpDesk.repository.*;
+import com.project.HelpDesk.model.*;
+import  com.project.HelpDesk.service.*;
+import  com.project.HelpDesk.controller.*;
+import  com.project.HelpDesk.auth.*;
 
 @Service
 @RequiredArgsConstructor
@@ -18,7 +20,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 public class AuthenticationService {
 
-    private final UserDao repository;
+    private final userRepo repository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
