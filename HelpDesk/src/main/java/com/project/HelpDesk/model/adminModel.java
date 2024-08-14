@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.Set;
+import lombok.Builder;
+import lombok.Data;
 
 @Data
 @NoArgsConstructor
@@ -21,6 +23,7 @@ public class adminModel {
     private String nom;
     private String email;
     private String password;
+    private Role role;
 
 
 

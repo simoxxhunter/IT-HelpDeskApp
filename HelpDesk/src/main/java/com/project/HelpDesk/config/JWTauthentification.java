@@ -1,6 +1,5 @@
 package com.project.HelpDesk.config;
 
-import com.bank.Services.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,6 +12,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+
+import com.project.HelpDesk.repository.*;
+import com.project.HelpDesk.model.*;
+import  com.project.HelpDesk.service.*;
+import  com.project.HelpDesk.controller.*;
+import  com.project.HelpDesk.auth.*;
+import com.project.HelpDesk.config.*;
+import com.project.HelpDesk.service.JwtService;
+
 
 import java.io.IOException;
 
