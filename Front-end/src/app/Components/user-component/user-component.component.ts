@@ -31,7 +31,7 @@ export class UserComponent implements OnInit {
       dateCreation: [{ value: new Date().toISOString().split('T')[0], disabled: true }, Validators.required],
       panneId: ['', Validators.required],
       equipementId: ['', Validators.required],
-      etat: ['Pending', Validators.required] // Default value
+      etat: ['Pending', Validators.required] 
     });
     
   }
@@ -75,7 +75,7 @@ export class UserComponent implements OnInit {
         etat: this.ticketForm.get('etat')?.value,
         equipement: { id: equipementId },
         panne: { id: panneId },
-        utilisateur: { id: utilisateurId } 
+        utilisateur: { id: utilisateurId },
       };
   
       this.ticketService.createTicket(ticketData).subscribe({

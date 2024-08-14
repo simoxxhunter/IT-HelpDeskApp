@@ -45,17 +45,20 @@ export class AdminTicketsComponent implements OnInit {
 
   assignTicket(ticketId: number | undefined): void {
     if (ticketId !== undefined) {
-      this.assignForm.patchValue({
-        ticketId: ticketId
-      });
-      this.ticketService.assignTicket(this.assignForm.get('ticketId')?.value, this.assignForm.get('technicianId')?.value)
-        .subscribe(
-          response => {
-            alert('Ticket assigned successfully');
-            this.assignForm.reset();
-            this.loadTickets();
+      const technicianId = this.assignForm.get('technicianId')?.value;
+      this.ticketService.assignTicket(ticketId, technicianId).subscribe(
+        response => {
+          alert('Ticket assigned successfully');
+          const updatedTicket = this.tickets.find(t => t.id === ticketId);
+          if (updatedTicket) {
+            updatedTicket.technicienId = technicianId;
           }
-        );
-    } 
+          this.assignForm.reset();
+        },
+        error => {
+          alert('Failed to assign ticket');
+        }
+      );
+    }
   }
 }

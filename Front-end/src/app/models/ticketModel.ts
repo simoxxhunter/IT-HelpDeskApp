@@ -6,4 +6,8 @@ export interface Ticket {
   equipementId?: number;
   utilisateurId?: number;
   panneId?: number;
+  technicienId?: number;
+  technicienName?: string;
+
 }
+

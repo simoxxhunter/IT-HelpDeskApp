@@ -11,8 +11,9 @@
             État: {{ ticket.etat }}<br>
             Équipement ID: {{ ticket.equipementId }}<br>
             Utilisateur ID: {{ ticket.utilisateurId }}<br>
-            Panne ID: {{ ticket.panneId }}
-          </p>
+            Panne ID: {{ ticket.panneId }}<br>
+            Assigned To: {{ ticket.technicienId || 'Not assigned' }}<br> 
+           </p>
           <form [formGroup]="assignForm" (ngSubmit)="assignTicket(ticket?.id)">
             <div class="form-group">
               <select class="form-control" formControlName="technicianId">
