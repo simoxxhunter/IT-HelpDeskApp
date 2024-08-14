@@ -11,6 +11,15 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.project.HelpDesk.repository.*;
+import com.project.HelpDesk.model.*;
+import  com.project.HelpDesk.service.*;
+import  com.project.HelpDesk.controller.*;
+import  com.project.HelpDesk.auth.*;
+import com.project.HelpDesk.config.*;
+
+
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor

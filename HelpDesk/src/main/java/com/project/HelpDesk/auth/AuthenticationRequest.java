@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 public class AuthenticationRequest {
 
-    private String userName  ;
+    private String email  ;
     String password;
 }

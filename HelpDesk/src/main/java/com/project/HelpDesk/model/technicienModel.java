@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Set;
+import lombok.Builder;
+import lombok.Data;
 
+@Builder
 @Data
 @Entity
 @Table(name = "technicien")
@@ -17,8 +20,14 @@ public class technicienModel {
     private String nom;
     private String email;
     private String password;
+    private Role role;
 
 
     @OneToMany(mappedBy = "technicien")
     private Set<ticketModel> tickets;
+
+
+    public technicienModel() {
+
+    }
 }

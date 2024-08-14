@@ -1,7 +1,6 @@
 package com.project.HelpDesk.config;
 
 
-import com.bank.Dao.UserDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,20 +8,28 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.project.HelpDesk.repository.*;
+import com.project.HelpDesk.model.*;
+import  com.project.HelpDesk.service.*;
+import  com.project.HelpDesk.controller.*;
+import  com.project.HelpDesk.auth.*;
+import com.project.HelpDesk.config.*;
+
 @Configuration
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
-    private final UserDao userDao;
+    private final userRepo userDao;
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> userDao.findByUserName(username)
+        return username -> (UserDetails) userRepo.findByUserName(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username not found"));
     }
 
