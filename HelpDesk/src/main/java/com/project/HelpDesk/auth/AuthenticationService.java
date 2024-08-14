@@ -1,6 +1,5 @@
 package com.project.HelpDesk.auth;
 
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -9,18 +8,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.project.HelpDesk.repository.*;
-import com.project.HelpDesk.model.*;
-import  com.project.HelpDesk.service.*;
-import  com.project.HelpDesk.controller.*;
-import  com.project.HelpDesk.auth.*;
-import com.project.HelpDesk.config.*;
-import lombok.Data;
+import com.project.HelpDesk.repository.userRepo;
+import com.project.HelpDesk.model.userModel;
+import com.project.HelpDesk.service.JwtService;
+import com.project.HelpDesk.controller.*;
+import  com.project.HelpDesk.config.*;
+import  com.project.HelpDesk.model.*;
 
 @Service
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
-
 public class AuthenticationService {
 
     private final userRepo repository;
@@ -30,7 +27,7 @@ public class AuthenticationService {
 
     public AuthenticationResponse register(RegisterRequest request) {
         var user = userModel.builder()
-                .userName(request.getEmail())
+                .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();
@@ -47,11 +44,11 @@ public class AuthenticationService {
                         request.getEmail(),
                         request.getPassword()
                 )
- );
-        var user = userRepo.findByUserName(request.getEmail())
-                .orElseThrow();
+        );
+        var user = repository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
-        var jwtToken = jwtService.generateToken((UserDetails) user);
+        var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();

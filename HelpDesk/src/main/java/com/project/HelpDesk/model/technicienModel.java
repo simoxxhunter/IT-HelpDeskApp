@@ -27,7 +27,5 @@ public class technicienModel {
     private Set<ticketModel> tickets;
 
 
-    public technicienModel() {
 
-    }
 }
