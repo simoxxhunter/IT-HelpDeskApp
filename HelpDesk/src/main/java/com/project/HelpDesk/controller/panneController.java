@@ -27,12 +27,12 @@ public class panneController {
     }
 
 
-    @PostMapping("/add")
+    @PostMapping("/ADMIN/add")
     public panneModel createPanne(@RequestBody panneModel panne) {
         return panneService.addPanne(panne);
     }
 
-    @PutMapping("/Modify/{id}")
+    @PutMapping("/ADMIN/Modify/{id}")
     public panneModel updatePanne(@PathVariable Long id, @RequestBody panneModel panneDetails) {
         return panneService.updatePanne(id, panneDetails);
     }
@@ -42,7 +42,7 @@ public class panneController {
         return panneService.getAllPanne();
     }
 
-    @DeleteMapping("/Delete/{idPanne}")
+    @DeleteMapping("/ADMIN/Delete/{idPanne}")
 
     public void deletePanne(@PathVariable Long idPanne) {
         panneService.deletePanne(idPanne);

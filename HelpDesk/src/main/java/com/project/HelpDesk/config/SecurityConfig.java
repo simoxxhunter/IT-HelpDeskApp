@@ -34,14 +34,12 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("api/v1/auth/**").permitAll()
-                  .requestMatchers("/tickets/**","/equipements/Admin/**","/technicians/**" )
-                        .permitAll()
-//                  .requestMatchers("/tickets/ADMIN/**").hasauthority.role("ADMIN")
-//
-//.re("/equipements/Admin/**").has("ADMIN")
-                        .anyRequest()
-                        .authenticated()
+                        .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/equipements/ADMIN/**").hasRole("ADMIN")
+                        .requestMatchers("/panne/ADMIN/**").hasRole("ADMIN")
+                        .requestMatchers("/tickets/USER/**").hasRole("USER")
+                        .requestMatchers("/tickets/TECH/**").hasRole("TECHNICIAN")
+                        .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -51,5 +49,6 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
 }

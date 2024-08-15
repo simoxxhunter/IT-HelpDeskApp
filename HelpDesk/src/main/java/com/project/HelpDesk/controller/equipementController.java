@@ -17,7 +17,7 @@ public class equipementController {
     @Autowired
     private equipementService equipementService;
 
-    @PostMapping("/Createequipement")
+    @PostMapping("/ADMIN/Createequipement")
     public equipementsModel creerequipement(@RequestBody equipementsModel equipement) {
         return equipementService.Createequipement(equipement);
     }
@@ -27,12 +27,12 @@ public class equipementController {
         return equipementService.getAllequipements();
     }
 
-    @PutMapping("/Modify/{idequipement}")
+    @PutMapping("/ADMIN/Modify/{idequipement}")
     public equipementsModel updateequipement(@PathVariable Long idequipement, @RequestBody equipementsModel equipement) {
         return equipementService.updateequipements(equipement, idequipement);
     }
 
-    @DeleteMapping("/Delete/{idequipement}")
+    @DeleteMapping("/ADMIN/Delete/{idequipement}")
     public void deleteCompte(@PathVariable Long idequipement) {
         equipementService.deleteequipements(idequipement);
     }

@@ -20,7 +20,7 @@ public class ticketController {
         return ticketService.addTicket(ticket);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/TECH/{id}")
     public ticketModel updateTicket(@PathVariable Long id, @RequestBody ticketModel ticketDetails) {
         return ticketService.updateTicket(id, ticketDetails);
     }
@@ -35,13 +35,13 @@ public class ticketController {
         ticketService.deleteTicket(idTicket);
     }
 
-    @PutMapping("/{ticketId}/assign/{technicienId}")
+    @PutMapping("/ADMIN/{ticketId}/assign/{technicienId}")
     public ticketModel assignTicket(@PathVariable Long ticketId, @PathVariable Long technicienId) {
         return ticketService.assignTicket(ticketId, technicienId);
     }
 
     @GetMapping("/USER/{utilisateur_id}")
-    public List<ticketModel>  findByUtilisateurId(@PathVariable Long utilisateur_id) {
+    public List<ticketModel> findByUtilisateurId(@PathVariable Long utilisateur_id) {
         List<ticketModel> tickets = ticketService.findByUtilisateurId(utilisateur_id);
         return tickets;
     }
