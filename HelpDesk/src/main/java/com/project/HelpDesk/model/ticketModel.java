@@ -1,5 +1,6 @@
 package com.project.HelpDesk.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,7 +21,8 @@ public class ticketModel {
 
     private String etat;
 
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "utilisateur_id")
     private userModel utilisateur;
 
@@ -36,7 +38,12 @@ public class ticketModel {
     @JoinColumn(name = "technicien_id")
     private technicienModel technicien;
 
-
+    @JsonProperty("userRole")
+    public String getUserRole() {
+        return (this.utilisateur != null && this.utilisateur.getRole() != null)
+                ? this.utilisateur.getRole().name()
+                : null;
+    }
 
 
 }

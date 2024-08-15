@@ -17,8 +17,10 @@ export class UserComponent implements OnInit {
   ticketForm: FormGroup;
   pannes: Panne[] = [];
   equipements: Equipement[] = [];
-  etats = ['Open', 'In Progress', 'Closed']; // Add status options
-  currentUserId: any;
+  etats = ['Open', 'In Progress', 'Closed'];
+  tickets: Ticket[] = [];
+  panneMap = new Map<number, Panne>();
+  equipementMap = new Map<number, Equipement>();
 
   constructor(
     private fb: FormBuilder,
@@ -31,25 +33,33 @@ export class UserComponent implements OnInit {
       dateCreation: [{ value: new Date().toISOString().split('T')[0], disabled: true }, Validators.required],
       panneId: ['', Validators.required],
       equipementId: ['', Validators.required],
-      etat: ['Pending', Validators.required] 
+      etat: ['Pending', Validators.required]
     });
-    
   }
 
   ngOnInit(): void {
     this.loadPannes();
     this.loadEquipements();
+    this.loadTickets();
   }
 
   loadPannes(): void {
     this.panneService.getAllPannes().subscribe(data => {
       this.pannes = data;
+      this.pannes.forEach(panne => this.panneMap.set(panne.id, panne));
     });
   }
 
   loadEquipements(): void {
     this.equipementService.getAllEquipments().subscribe(data => {
       this.equipements = data;
+      this.equipements.forEach(equipement => this.equipementMap.set(equipement.id, equipement));
+    });
+  }
+
+  loadTickets(): void {
+    this.ticketService.getTickets().subscribe(data => {
+      this.tickets = data;
     });
   }
 
@@ -61,27 +71,24 @@ export class UserComponent implements OnInit {
     addModal.show();
   }
 
-
   saveTicket(): void {
     if (this.ticketForm.valid) {
       const equipementId = this.ticketForm.get('equipementId')?.value;
       const panneId = this.ticketForm.get('panneId')?.value;
-  
-      const utilisateurId = 1; 
-  
+
       const ticketData = {
         description: this.ticketForm.get('description')?.value,
-        dateCreation: new Date, 
+        dateCreation: new Date(),
         etat: this.ticketForm.get('etat')?.value,
         equipement: { id: equipementId },
         panne: { id: panneId },
-        utilisateur: { id: utilisateurId },
       };
-  
+
       this.ticketService.createTicket(ticketData).subscribe({
         next: (response) => {
           console.log('Ticket created successfully', response);
           this.resetForm();
+          this.loadTickets();
         },
         error: (error) => {
           console.error('Error creating ticket:', error);
@@ -91,14 +98,6 @@ export class UserComponent implements OnInit {
       console.error('Form is invalid');
     }
   }
-  
-  
-
-
-  
-  
-  
-  
 
   resetForm(): void {
     this.ticketForm.reset();
@@ -110,4 +109,6 @@ export class UserComponent implements OnInit {
       }
     }
   }
+
+
 }

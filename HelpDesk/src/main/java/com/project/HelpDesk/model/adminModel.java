@@ -23,6 +23,8 @@ public class adminModel {
     private String nom;
     private String email;
     private String password;
+    @Column(name = "role", nullable = false,length = 10)
+    @Enumerated(EnumType.STRING)
     private Role role;
 
 

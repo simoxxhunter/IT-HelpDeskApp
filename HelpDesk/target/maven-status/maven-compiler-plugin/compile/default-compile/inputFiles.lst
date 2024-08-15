@@ -1,3 +1,11 @@
+C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\auth\AuthenticationController.java
+C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\auth\AuthenticationRequest.java
+C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\auth\AuthenticationResponse.java
+C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\auth\AuthenticationService.java
+C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\auth\RegisterRequest.java
+C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\config\ApplicationConfig.java
+C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\config\JWTauthentification.java
+C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\config\SecurityConfig.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\controller\adminController.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\controller\equipementController.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\controller\panneController.java
@@ -8,6 +16,7 @@ C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\model\adminModel.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\model\equipementsModel.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\model\panneModel.java
+C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\model\Role.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\model\technicienModel.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\model\ticketModel.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\model\userModel.java
@@ -18,6 +27,7 @@ C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\repository\userRepo.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\service\equipementService.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\service\equipementServiceImp.java
+C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\service\JwtService.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\service\panneService.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\service\panneServiceImp.java
 C:\Users\user\Desktop\IT-HelpDeskApp\HelpDesk\src\main\java\com\project\HelpDesk\service\technicienService.java

@@ -2,22 +2,20 @@
 <mat-sidenav-container class="sticky-side-menu full-size">
   <mat-sidenav mode="side" opened position="start" class="side-nav">
     <mat-nav-list>
-      <a mat-list-item routerLink="/tickets" routerLinkActive="menu-list-item-selected">
+      <a mat-list-item routerLink="/admin" routerLinkActive="menu-list-item-selected">
         <mat-icon class="menu-color"> assessment </mat-icon> Dashoard
       </a>
       <hr color="maroon">
-      <a mat-list-item routerLink="/incident-reports">
+      <a mat-list-item routerLink="/pannes">
         <mat-icon class="menu-color">report_problem</mat-icon> Pannes
       </a>
-      <a mat-list-item routerLink="/knowledge-base">
+      <a mat-list-item routerLink="/admin-tickets">
         <mat-icon class="menu-color">book</mat-icon> Tickets
       </a>
-      <a mat-list-item routerLink="/assets">
+      <a mat-list-item routerLink="/equipements">
         <mat-icon class="menu-color">inventory</mat-icon> Equipments
       </a>
-      <a mat-list-item routerLink="/service-requests">
-        <mat-icon class="menu-color">request_quote</mat-icon> Service Requests
-      </a>
+      
       
     </mat-nav-list>
   </mat-sidenav>
@@ -26,7 +24,7 @@
     <div class="container mt-5 pannes-list">
       <h2 class="mb-4 text-center">Manage Pannes</h2>
       
-      <button type="button" class="btn btn-primary mb-4" (click)="openAddModal()">
+      <button type="button" class="btn btn-success mb-4" (click)="openAddModal()">
         <i class="fas fa-plus-circle mr-2"></i>Add New Panne
       </button>
       
@@ -67,6 +65,13 @@
     
   
   
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
     <!-- add modal -->
   
   
@@ -148,8 +153,3 @@
       </div>
     </div>
     
-
-
-
-  </mat-sidenav-content>
-</mat-sidenav-container>
