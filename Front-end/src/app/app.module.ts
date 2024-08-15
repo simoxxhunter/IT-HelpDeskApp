@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
-import { UserDashboardComponent } from './Components/user-dashboard/user-dashboard.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -35,17 +34,20 @@ import { AdminTicketsComponent } from './Components/admin-tickets/admin-tickets.
 import { AdminEquipmentsComponent } from './Components/admin-equipements/admin-equipements.component';
 import {  AdminPannesComponent } from './Components/admin-pannes/admin-pannes.component';
 import { UserComponent } from './Components/user-component/user-component.component';
+import { LoginComponent } from './Components/login/login.component';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminDashboardComponent,
-    UserDashboardComponent,
     AdminTicketsComponent,
     AdminEquipmentsComponent,
     AdminPannesComponent,
     AdminPannesComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     MatTabsModule,
@@ -75,7 +77,7 @@ import { UserComponent } from './Components/user-component/user-component.compon
     MatSelectModule,
     MatProgressBarModule
   ],
-  providers: [],
+  providers: [AuthService,  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

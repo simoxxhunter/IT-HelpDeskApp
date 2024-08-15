@@ -17,10 +17,11 @@ export class UserComponent implements OnInit {
   ticketForm: FormGroup;
   pannes: Panne[] = [];
   equipements: Equipement[] = [];
-  etats = ['Open', 'In Progress', 'Closed'];
+  etats = ['Open', 'In Progress', 'solved'];
   tickets: Ticket[] = [];
   panneMap = new Map<number, Panne>();
   equipementMap = new Map<number, Equipement>();
+  userId: number = 1; 
 
   constructor(
     private fb: FormBuilder,
@@ -40,7 +41,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.loadPannes();
     this.loadEquipements();
-    this.loadTickets();
+    this.loadUserTickets();
   }
 
   loadPannes(): void {
@@ -57,10 +58,15 @@ export class UserComponent implements OnInit {
     });
   }
 
-  loadTickets(): void {
-    this.ticketService.getTickets().subscribe(data => {
-      this.tickets = data;
-    });
+  loadUserTickets(): void {
+    this.ticketService.getTicketsByUserId(this.userId).subscribe(
+      (data) => {
+        this.tickets = data;
+      },
+      (error) => {
+        console.error('Error fetching user tickets:', error);
+      }
+    );
   }
 
   openAddModal(): void {
@@ -71,24 +77,28 @@ export class UserComponent implements OnInit {
     addModal.show();
   }
 
+  
   saveTicket(): void {
     if (this.ticketForm.valid) {
       const equipementId = this.ticketForm.get('equipementId')?.value;
       const panneId = this.ticketForm.get('panneId')?.value;
-
-      const ticketData = {
+  
+      const ticketData: any = {
         description: this.ticketForm.get('description')?.value,
-        dateCreation: new Date(),
+        dateCreation: new Date().toISOString().split('T')[0],
         etat: this.ticketForm.get('etat')?.value,
+        utilisateur: { id: this.userId },
         equipement: { id: equipementId },
-        panne: { id: panneId },
+        panne: { id: panneId }
       };
-
+  
+      console.log('Ticket data being sent:', ticketData);
+  
       this.ticketService.createTicket(ticketData).subscribe({
         next: (response) => {
           console.log('Ticket created successfully', response);
           this.resetForm();
-          this.loadTickets();
+          this.loadUserTickets();
         },
         error: (error) => {
           console.error('Error creating ticket:', error);
@@ -97,6 +107,14 @@ export class UserComponent implements OnInit {
     } else {
       console.error('Form is invalid');
     }
+  }
+
+  getPanneDescription(panneId: number | undefined): string {
+    return panneId ? (this.panneMap.get(panneId)?.description || 'Unknown') : 'Unknown';
+  }
+
+  getEquipementNom(equipementId: number | undefined): string {
+    return equipementId ? (this.equipementMap.get(equipementId)?.nom || 'Unknown') : 'Unknown';
   }
 
   resetForm(): void {
@@ -110,5 +128,5 @@ export class UserComponent implements OnInit {
     }
   }
 
-
+  
 }

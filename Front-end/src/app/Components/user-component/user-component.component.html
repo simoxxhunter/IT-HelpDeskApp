@@ -53,9 +53,11 @@
       </div>
     </div>
   </div>
+
+  
 <!-- Tickets Table -->
 <div class="mt-4">
-  <h3>All Tickets</h3>
+  <h3>Your Tickets</h3>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -63,6 +65,7 @@
         <th>Description</th>
         <th>Date Created</th>
         <th>Status</th>
+       
       </tr>
     </thead>
     <tbody>
@@ -71,7 +74,9 @@
         <td>{{ ticket.description }}</td>
         <td>{{ ticket.dateCreation | date }}</td>
         <td>{{ ticket.etat }}</td>
+      
       </tr>
     </tbody>
   </table>
+</div>
 </div>

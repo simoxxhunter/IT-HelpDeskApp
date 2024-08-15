@@ -15,12 +15,8 @@ export class TicketService {
     return this.http.get<Ticket[]>(this.apiUrl);
   }
 
-  getTicketById(id: number): Observable<Ticket> {
-    return this.http.get<Ticket>(`${this.apiUrl}/${id}`);
-  }
-
   createTicket(ticket: Ticket): Observable<Ticket> {
-    return this.http.post<Ticket>(`${this.apiUrl}/add`, ticket);
+    return this.http.post<Ticket>(`${this.apiUrl}/USER/add`, ticket);
   }
 
   updateTicket(id: number, ticket: Ticket): Observable<Ticket> {
@@ -34,4 +30,7 @@ export class TicketService {
   assignTicket(ticketId: number, technicianId: number): Observable<Ticket> {
     return this.http.put<Ticket>(`${this.apiUrl}/${ticketId}/assign/${technicianId}`, null);
   }
-}
+
+  getTicketsByUserId(userId: number): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(`${this.apiUrl}/USER/${userId}`);
+  }}
