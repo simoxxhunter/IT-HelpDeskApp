@@ -15,7 +15,7 @@ public class ticketController {
     @Autowired
     private ticketService ticketService;
 
-    @PostMapping("/add")
+    @PostMapping("/USER/add")
     public ticketModel createTicket(@RequestBody ticketModel ticket) {
         return ticketService.addTicket(ticket);
     }
@@ -38,5 +38,11 @@ public class ticketController {
     @PutMapping("/{ticketId}/assign/{technicienId}")
     public ticketModel assignTicket(@PathVariable Long ticketId, @PathVariable Long technicienId) {
         return ticketService.assignTicket(ticketId, technicienId);
+    }
+
+    @GetMapping("/USER/{utilisateur_id}")
+    public List<ticketModel>  findByUtilisateurId(@PathVariable Long utilisateur_id) {
+        List<ticketModel> tickets = ticketService.findByUtilisateurId(utilisateur_id);
+        return tickets;
     }
 }

@@ -38,12 +38,6 @@ public class ticketModel {
     @JoinColumn(name = "technicien_id")
     private technicienModel technicien;
 
-    @JsonProperty("userRole")
-    public String getUserRole() {
-        return (this.utilisateur != null && this.utilisateur.getRole() != null)
-                ? this.utilisateur.getRole().name()
-                : null;
-    }
 
 
 }

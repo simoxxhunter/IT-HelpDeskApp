@@ -95,4 +95,11 @@ public class ticketServiceImp implements ticketService {
 
     }
 
+
+    @Override
+
+    public List<ticketModel> findByUtilisateurId(Long utilisateur_id) {
+        return ticketRepository.findByUtilisateurId(utilisateur_id);
+    }
+
 }

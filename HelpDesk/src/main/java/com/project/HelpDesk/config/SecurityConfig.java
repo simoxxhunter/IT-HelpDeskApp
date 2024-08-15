@@ -37,6 +37,8 @@
 //                        .requestMatchers("api/v1/auth/**").permitAll()
 //                  .requestMatchers("/tickets/**","/equipements/Admin/**","/technicians/**" )
 //                        .permitAll()
+//                  .requestMatchers("/tickets/ADMIN/**").hasauthority.role("ADMIN")
+
 //.re("/equipements/Admin/**").has("ADMIN")
 //                        .anyRequest()
 //                        .authenticated()
