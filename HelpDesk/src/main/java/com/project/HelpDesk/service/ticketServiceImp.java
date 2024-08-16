@@ -102,4 +102,9 @@ public class ticketServiceImp implements ticketService {
         return ticketRepository.findByUtilisateurId(utilisateur_id);
     }
 
+    @Override
+    public List<ticketModel> getTicketsByTechnician(Long technicienId) {
+        return ticketRepository.findByTechnicienId(technicienId);
+    }
+
 }

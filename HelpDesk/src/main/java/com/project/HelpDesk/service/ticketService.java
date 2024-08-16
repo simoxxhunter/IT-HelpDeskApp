@@ -11,4 +11,6 @@ public interface ticketService {
     List<ticketModel> getAllTickets();
     ticketModel assignTicket(Long ticketId, Long technicienId);
     List<ticketModel> findByUtilisateurId(Long utilisateur_id);
+
+    List<ticketModel> getTicketsByTechnician(Long technicienId);
 }

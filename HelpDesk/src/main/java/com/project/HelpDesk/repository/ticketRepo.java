@@ -8,4 +8,6 @@ import java.util.List;
 public interface ticketRepo extends JpaRepository<ticketModel, Long > {
 
     List<ticketModel> findByUtilisateurId(Long utilisateurId);
+    List<ticketModel> findByTechnicienId(Long technicienId);
+
 }
