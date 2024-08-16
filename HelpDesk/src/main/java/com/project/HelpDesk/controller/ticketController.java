@@ -46,7 +46,7 @@ public class ticketController {
         return tickets;
     }
 
-    @GetMapping("/TECHNICIEN/assigned")
+    @GetMapping("/TECHNICIAN/assigned")
     public List<ticketModel> getAssignedTickets(@RequestParam Long technicienId) {
         List<ticketModel> asignedtickets = ticketService.getTicketsByTechnician(technicienId);
         return asignedtickets;

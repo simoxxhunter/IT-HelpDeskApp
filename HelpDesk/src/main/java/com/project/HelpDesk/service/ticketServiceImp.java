@@ -62,7 +62,6 @@ public class ticketServiceImp implements ticketService {
     }
 
 
-
     @Override
     public void deleteTicket(Long idTicket) {
         ticketRepository.deleteById(idTicket);
@@ -92,9 +91,7 @@ public class ticketServiceImp implements ticketService {
         ticket.setTechnicien(technicien);
         return ticketRepository.save(ticket);
 
-
     }
-
 
     @Override
 
