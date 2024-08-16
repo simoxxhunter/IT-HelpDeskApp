@@ -17,14 +17,14 @@ export class EquipementService {
   }
 
   addEquipment(equipement: Equipement): Observable<Equipement> {
-    return this.http.post<Equipement>(this.apiUrl + '/Createequipement', equipement);
+    return this.http.post<Equipement>(this.apiUrl + '/ADMIN/Createequipement', equipement);
   }
 
   updateEquipment(id: number, equipement: Equipement): Observable<Equipement> {
-    return this.http.put<Equipement>(`${this.apiUrl}/Modify/${id}`, equipement);
+    return this.http.put<Equipement>(`${this.apiUrl}/ADMIN/Modify/${id}`, equipement);
   }
 
   deleteEquipment(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/Delete/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/ADMIN/Delete/${id}`);
   }
 }

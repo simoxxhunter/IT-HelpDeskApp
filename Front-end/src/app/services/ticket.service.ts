@@ -20,7 +20,7 @@ export class TicketService {
   }
 
   updateTicket(id: number, ticket: Ticket): Observable<Ticket> {
-    return this.http.put<Ticket>(`${this.apiUrl}/${id}`, ticket);
+    return this.http.put<Ticket>(`${this.apiUrl}/TECH/${id}`, ticket);
   }
 
   deleteTicket(id: number): Observable<void> {
@@ -28,7 +28,7 @@ export class TicketService {
   }
 
   assignTicket(ticketId: number, technicianId: number): Observable<Ticket> {
-    return this.http.put<Ticket>(`${this.apiUrl}/${ticketId}/assign/${technicianId}`, null);
+    return this.http.put<Ticket>(`${this.apiUrl}/ADMIN/${ticketId}/assign/${technicianId}`, null);
   }
 
   getTicketsByUserId(userId: number): Observable<Ticket[]> {

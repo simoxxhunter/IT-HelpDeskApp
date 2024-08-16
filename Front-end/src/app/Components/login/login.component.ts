@@ -1,40 +1,44 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+export class LoginComponent {
+  email: string = '';
+  password: string = '';
 
-  constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {
-    this.loginForm = this.fb.group({
-      email: [''],
-      password: ['']
-    });
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
-
-  onSubmit(): void {
-    if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      this.authService.login(email, password).subscribe({
-        next: (response) => {
-          console.log('Login successful', response);
-          this.router.navigate(['admin-tickets']); 
-        },
-        error: (error) => {
-          console.error('Login error:', error);
+  onLogin() {
+    this.authService.login(this.email, this.password).subscribe(
+      (response) => {
+        const token = response.token;
+        const role = response.role;
+        
+        if (token && role) {
+          localStorage.setItem('authToken', token);
+          localStorage.setItem('role', role);
+          
+          if (role === 'ADMIN') {
+            this.router.navigate(['/admin']);
+          } else if (role === 'USER') {
+            this.router.navigate(['/create-ticket']);
+          } else if (role === 'TECHNICIEN') {
+            this.router.navigate(['/technicien']);
+          } else {
+            alert('Role not recognized');
+          }
+        } else {
+          alert('Invalid login response');
         }
-      });
-    }
+      },
+      (error) => {
+        alert('Login failed');
+      }
+    );
   }
 }

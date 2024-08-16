@@ -18,27 +18,22 @@ import  com.project.HelpDesk.controller.*;
 import  com.project.HelpDesk.auth.*;
 import com.project.HelpDesk.config.*;
 
-
-
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-
-
 public class SecurityConfig {
 
     private final AuthenticationProvider authenticationProvider;
     private final JWTauthentification jwtAuthFilter;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/api/v1/auth/**").permitAll()
-                        .requestMatchers("/equipements/ADMIN/**").hasRole("ADMIN")
-                        .requestMatchers("/panne/ADMIN/**").hasRole("ADMIN")
-                        .requestMatchers("/tickets/USER/**").hasRole("USER")
-                        .requestMatchers("/tickets/TECH/**").hasRole("TECHNICIAN")
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/tech/**").hasRole("TECH")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
@@ -49,6 +44,4 @@ public class SecurityConfig {
 
         return http.build();
     }
-
-
 }

@@ -37,6 +37,7 @@ import { UserComponent } from './Components/user-component/user-component.compon
 import { LoginComponent } from './Components/login/login.component';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { TokenInterceptor } from './services/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,10 @@ import { AuthInterceptor } from './services/auth.interceptor';
     MatSelectModule,
     MatProgressBarModule
   ],
-  providers: [AuthService,  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [AuthService, 
+     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },   
+     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
